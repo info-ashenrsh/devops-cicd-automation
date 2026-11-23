@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Learning Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🚀 DevOps Learning Dashboard</h1>
+        <p>Learn. Automate. Deploy. Monitor.</p>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Welcome to My DevOps Journey!</h2>
+            <p>
+                Exploring Git, GitHub, CI/CD, Docker,
+                Cloud Deployment and Monitoring.
+            </p>
+            <span id="status">Checking application...</span>
+        </section>
+
+        <section class="cards">
+            <div class="card">
+                <h3>01. Git & GitHub</h3>
+                <p>Version control and collaboration.</p>
+            </div>
+
+            <div class="card">
+                <h3>02. CI/CD</h3>
+                <p>Automated building and testing.</p>
+            </div>
+
+            <div class="card">
+                <h3>03. Docker</h3>
+                <p>Application containerization.</p>
+            </div>
+
+            <div class="card">
+                <h3>04. Azure</h3>
+                <p>Cloud application deployment.</p>
+            </div>
+
+            <div class="card">
+                <h3>05. Monitoring</h3>
+                <p>Logs and application health.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>DevOps CI/CD Automation Project | 2026</p>
+    </footer>
+
+    <script>
+        fetch("/health")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("status").textContent =
+                    "Application Status: " + data.status;
+            })
+            .catch(() => {
+                document.getElementById("status").textContent =
+                    "Application is unavailable";
+            });
+    </script>
+
+</body>
+</html>
